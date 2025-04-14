@@ -182,6 +182,17 @@
 						05 01 00 00 46 00 02 10 00];
 				qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 				qcom,mdss-dsi-post-off-command-state = "dsi_hs_mode";
+				/* FPS */
+				qcom,mdss-dsi-sync-pen-120hz-command = [
+						15 00 00 00 00 00 02 FF 2A
+						15 00 00 00 00 00 02 23 0D
+						15 01 00 00 00 00 02 FF 10];
+				qcom,mdss-dsi-sync-pen-60hz-command = [
+						15 00 00 00 00 00 02 FF 2A
+						15 00 00 00 00 00 02 23 0C
+						15 01 00 00 00 00 02 FF 10];
+				qcom,mdss-dsi-sync-pen-120hz-command-state = "dsi_lp_mode";
+				qcom,mdss-dsi-sync-pen-60hz-command-state = "dsi_lp_mode";
 				/* ESD */
 				qcom,mdss-dsi-esd-check-read-command = [
 						/* esd detect */
