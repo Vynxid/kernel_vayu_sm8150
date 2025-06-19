@@ -1,0 +1,39 @@
+name: Build Kernel with SUSFS Patch
+
+on:
+  workflow_dispatch:  # Bisa dijalankan manual dari GitHub UI
+
+jobs:
+  build:
+    name: Compile Kernel
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Kernel Source
+      uses: actions/checkout@v3
+
+    - name: Set Up Environment
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y bc bison build-essential ccache curl flex git \
+          libssl-dev libelf-dev libncurses5-dev libncursesw5-dev python3 python-is-python3 unzip zip wget \
+          python3-pip
+        pip install pycryptodome
+
+    - name: Give Execute Permission to build.sh
+      run: chmod +x build.sh
+
+    - name: Run Build Script
+      run: |
+        ./build.sh
+
+    - name: Upload Kernel Artifacts
+      if: success()
+      uses: actions/upload-artifact@v4
+      with:
+        name: kernel-build-output
+        path: |
+          /workspace/jale/AnyKernel3/Image
+          /workspace/jale/AnyKernel3/dtbo.img
+          /workspace/jale/AnyKernel3/dtb
+          
