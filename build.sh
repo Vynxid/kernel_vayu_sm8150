@@ -9,7 +9,7 @@ MKDTBOIMG="/workspace/jale/libufdt/utils/src/mkdtboimg.py"
 CLANG_DIR="/workspace/jale/clang"
 GCC64_DIR="/workspace/jale/gcc64/aarch64--glibc--stable-2024.05-1"
 GCC32_DIR="/workspace/jale/gcc32"
-patch_file="ksu-susfs.patch"
+patch_file="0001-kernel-patch-susfs-v1.5.7-to-KernelSU-Next-v1.0.7.patch"
 
 # Variables
 export ARCH="arm64"
